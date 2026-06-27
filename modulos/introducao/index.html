@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo 1 — Introdução ao C · Aprenda.C</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Aprenda<span class="logo-accent">.</span>C</div>
+    <div class="nav-links">
+      <a href="../../index.html">Início</a>
+      <a href="../../index.html#modulos">Módulos</a>
+    </div>
+  </nav>
+
+  <div class="modulo-progresso">
+    <span class="progresso-texto" id="texto-progresso">Quiz: pendente · Código: 0 de 5</span>
+    <div class="progresso-barra"><div class="progresso-fill" id="barra-progresso" style="width:0%"></div></div>
+    <span class="progresso-texto" id="pct-progresso">0%</span>
+  </div>
+
+  <div class="modulo-container">
+    <aside class="sidebar">
+      <div class="sidebar-titulo">Módulo 1 — Introdução ao C</div>
+      <div class="sidebar-item ativo" onclick="irPara('teoria')"><span class="icone-status">📖</span> Teoria</div>
+      <div class="sidebar-item" onclick="irPara('quiz')"><span class="icone-status">🎯</span> Quiz (12 questões)</div>
+      <div class="sidebar-item" onclick="irPara('codigo')"><span class="icone-status">⌨️</span> Desafios (5 exercícios)</div>
+    </aside>
+
+    <main class="conteudo-principal">
+      <div class="modulo-badge"><a href="../../index.html">Início</a> › Módulo 1</div>
+      <h1 class="modulo-titulo">Introdução ao C</h1>
+      <p class="modulo-desc">Entenda o que é a linguagem C, como ela funciona, sua história e escreva seus primeiros programas do zero.</p>
+
+      <!-- TEORIA -->
+      <div id="teoria" class="teoria-secao">
+
+        <h2>O que é a linguagem C?</h2>
+        <p>C é uma das linguagens de programação mais antigas, influentes e ainda relevantes do mundo. Criada em <strong>1972</strong> por <strong>Dennis Ritchie</strong> nos Laboratórios Bell (AT&T), ela nasceu com um objetivo muito prático: reescrever o sistema operacional Unix de uma forma portável e eficiente.</p>
+        <p>Antes de C, sistemas operacionais eram escritos em Assembly — uma linguagem extremamente próxima do hardware, difícil e específica para cada processador. C trouxe o melhor dos dois mundos: a velocidade próxima do Assembly com uma sintaxe muito mais legível e portável.</p>
+        <div class="destaque">💡 O kernel do Linux, que roda em bilhões de dispositivos Android, servidores e até na Estação Espacial Internacional, é escrito principalmente em C.</div>
+
+        <h2>Por que aprender C em 2026?</h2>
+        <ul>
+          <li><strong>Base de tudo:</strong> C++, Java, C#, Python e Go têm raízes diretas em C. Quem aprende C aprende o fundamento.</li>
+          <li><strong>Entender o computador de verdade:</strong> C trabalha diretamente com memória, ponteiros e hardware — você realmente entende como as coisas funcionam.</li>
+          <li><strong>Alta performance:</strong> sistemas embarcados, drivers, jogos e bancos de dados usam C justamente pela velocidade.</li>
+          <li><strong>Mercado sólido:</strong> IoT, firmware, segurança ofensiva e sistemas operacionais ainda dependem fortemente de C.</li>
+        </ul>
+
+        <h2>Escolhendo seu ambiente de desenvolvimento</h2>
+        <p>Para escrever e compilar programas em C no seu computador, você precisa de um ambiente de desenvolvimento. Os dois mais recomendados para iniciantes são o <strong>Dev-C++</strong> e o <strong>Visual Studio Code</strong>. Veja as diferenças e escolha o que mais combina com você:</p>
+
+        <div class="tabela-tipos">
+          <div class="tipo-row header"><span>Critério</span><span>Dev-C++</span><span>Visual Studio Code</span></div>
+          <div class="tipo-row"><span>Instalação</span><span>Simples — tudo em um arquivo</span><span>Requer instalar extensões e compilador separado</span></div>
+          <div class="tipo-row"><span>Ideal para</span><span>Iniciantes, uso acadêmico</span><span>Quem quer uma IDE profissional</span></div>
+          <div class="tipo-row"><span>Peso</span><span>Leve (~50 MB)</span><span>Médio (~100 MB + extensões)</span></div>
+          <div class="tipo-row"><span>Recursos</span><span>Compilador integrado, depurador básico</span><span>Extensions, Git, terminal, temas</span></div>
+          <div class="tipo-row"><span>Sistema</span><span>Windows apenas</span><span>Windows, Mac e Linux</span></div>
+        </div>
+
+        <div class="destaque">💡 <strong>Recomendação:</strong> se você está começando agora e usa Windows, o <strong>Dev-C++</strong> é a escolha mais prática — instale e já comece a programar. Se quiser um editor mais completo e usado no mercado, opte pelo <strong>VS Code</strong>.</div>
+
+        <div class="ferramentas-grid">
+          <div class="ferramenta-card">
+            <div class="ferramenta-header">
+              <span class="ferramenta-icon">⚙️</span>
+              <div>
+                <h4>Dev-C++</h4>
+                <span class="ferramenta-tag">Recomendado para iniciantes</span>
+              </div>
+            </div>
+            <p>IDE gratuita e leve para Windows. Já vem com o compilador GCC incluso — basta instalar e começar a programar. Perfeito para quem quer focar no aprendizado sem configurações.</p>
+            <a href="https://www.dev-cpp.com/" target="_blank" rel="noopener noreferrer" class="btn-ferramenta">⬇ Baixar Dev-C++</a>
+          </div>
+
+          <div class="ferramenta-card">
+            <div class="ferramenta-header">
+              <span class="ferramenta-icon">🎬</span>
+              <div>
+                <h4>Visual Studio Code</h4>
+                <span class="ferramenta-tag">Editor profissional</span>
+              </div>
+            </div>
+            <p>Editor gratuito da Microsoft, leve e muito poderoso. Requer a instalação de extensões e do compilador MinGW separadamente. O vídeo abaixo mostra o passo a passo completo para configurar C no VS Code.</p>
+            <a href="https://www.youtube.com/watch?v=ogciab1tEEo" target="_blank" rel="noopener noreferrer" class="btn-ferramenta btn-ferramenta-video">▶ Ver tutorial de instalação</a>
+          </div>
+        </div>
+
+        <h2>C: compilada vs interpretada</h2>
+        <p>Existem dois grandes modelos de execução de linguagens de programação:</p>
+        <div class="tabela-tipos">
+          <div class="tipo-row header"><span>Característica</span><span>Compilada (C)</span><span>Interpretada (Python)</span></div>
+          <div class="tipo-row"><span>Tradução</span><span>Antes da execução</span><span>Durante a execução</span></div>
+          <div class="tipo-row"><span>Velocidade</span><span>Muito rápida</span><span>Mais lenta</span></div>
+          <div class="tipo-row"><span>Portabilidade</span><span>Recompila por plataforma</span><span>Roda onde houver interpretador</span></div>
+          <div class="tipo-row"><span>Erros</span><span>Detectados na compilação</span><span>Detectados em tempo de execução</span></div>
+        </div>
+
+        <h2>O processo de compilação</h2>
+        <p>Quando você escreve um programa em C, ele passa por várias etapas antes de virar um executável:</p>
+        <div class="tabela-tipos">
+          <div class="tipo-row header"><span>Etapa</span><span>Ferramenta</span><span>Resultado</span></div>
+          <div class="tipo-row"><span>1. Código-fonte</span><span>Você escreve</span><span>programa.c</span></div>
+          <div class="tipo-row"><span>2. Pré-processamento</span><span>Pré-processador</span><span>Expande #include e #define</span></div>
+          <div class="tipo-row"><span>3. Compilação</span><span>Compilador (gcc)</span><span>Código objeto (.o)</span></div>
+          <div class="tipo-row"><span>4. Ligação</span><span>Linker</span><span>Executável final</span></div>
+        </div>
+
+        <h2>Estrutura de um programa em C</h2>
+        <p>Todo programa C tem uma estrutura mínima obrigatória. Veja e entenda cada parte:</p>
+        <div class="codigo-exemplo">
+          <div class="topo"><span>hello.c</span><span>programa mínimo</span></div>
+          <pre><span class="kw">#include</span> <span class="str">&lt;stdio.h&gt;</span>   <span class="cm">// 1. inclui a biblioteca de I/O</span>
+
+<span class="kw">int</span> <span class="fn">main</span>() {             <span class="cm">// 2. função principal — entrada do programa</span>
+    <span class="fn">printf</span>(<span class="str">"Hello!\n"</span>);  <span class="cm">// 3. imprime na tela</span>
+    <span class="kw">return</span> <span class="num">0</span>;            <span class="cm">// 4. sinaliza sucesso ao sistema operacional</span>
+}</pre>
+        </div>
+        <ul>
+          <li><code>#include &lt;stdio.h&gt;</code> — diretiva que importa a biblioteca padrão de entrada/saída. Sem ela, <code>printf</code> não existe.</li>
+          <li><code>int main()</code> — ponto de entrada obrigatório. O sistema operacional sempre começa aqui. O <code>int</code> indica que main retorna um inteiro.</li>
+          <li><code>printf("Hello!\n")</code> — imprime texto. O <code>\n</code> é uma sequência de escape que representa uma nova linha.</li>
+          <li><code>return 0;</code> — devolve 0 ao SO, indicando que o programa terminou sem erros.</li>
+        </ul>
+
+        <h2>Sequências de escape</h2>
+        <p>Dentro de strings, certos caracteres especiais são representados com barra invertida:</p>
+        <div class="tabela-tipos">
+          <div class="tipo-row header"><span>Sequência</span><span>Significado</span><span>Exemplo de uso</span></div>
+          <div class="tipo-row"><span><code>\n</code></span><span>Nova linha</span><span><code>printf("Linha1\nLinha2");</code></span></div>
+          <div class="tipo-row"><span><code>\t</code></span><span>Tabulação (tab)</span><span><code>printf("Nome:\tAna");</code></span></div>
+          <div class="tipo-row"><span><code>\\</code></span><span>Barra invertida literal</span><span><code>printf("C:\\pasta");</code></span></div>
+          <div class="tipo-row"><span><code>\"</code></span><span>Aspas dentro da string</span><span><code>printf("Ele disse \"oi\"");</code></span></div>
+          <div class="tipo-row"><span><code>\0</code></span><span>Caractere nulo (fim de string)</span><span>Usado internamente</span></div>
+        </div>
+
+        <h2>Comentários em C</h2>
+        <p>Comentários são ignorados pelo compilador — servem para documentar e explicar o código:</p>
+        <div class="codigo-exemplo">
+          <div class="topo"><span>comentarios.c</span><span>dois estilos</span></div>
+          <pre><span class="cm">// Comentário de linha — tudo após // é ignorado pelo compilador</span>
+
+<span class="cm">/* Comentário de bloco — pode ocupar
+   várias linhas, útil para
+   documentação longa */</span>
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="fn">printf</span>(<span class="str">"Ola!\n"</span>);  <span class="cm">// comentário ao lado do código</span>
+    <span class="kw">return</span> <span class="num">0</span>;
+}</pre>
+        </div>
+
+        <h2>Erros mais comuns de iniciantes</h2>
+        <div class="tabela-tipos">
+          <div class="tipo-row header"><span>Erro</span><span>Causa</span><span>Solução</span></div>
+          <div class="tipo-row"><span>Esquecer o <code>;</code></span><span>C exige ; no final de toda instrução</span><span>Adicionar ; antes de fechar o bloco</span></div>
+          <div class="tipo-row"><span>Não fechar <code>{ }</code></span><span>Todo bloco aberto precisa ser fechado</span><span>Verificar se cada { tem seu }</span></div>
+          <div class="tipo-row"><span>Esquecer <code>#include</code></span><span>Funções como printf não são reconhecidas</span><span>Adicionar #include &lt;stdio.h&gt; no topo</span></div>
+          <div class="tipo-row"><span>Maiúsculas erradas</span><span>C é case-sensitive: Printf ≠ printf</span><span>Usar sempre letras minúsculas nas funções padrão</span></div>
+        </div>
+
+        <div class="destaque">⚠️ Bom hábito: compile e execute o código frequentemente, em pequenos incrementos. Assim, quando um erro aparecer, você sabe exatamente onde está.</div>
+      </div>
+
+      <!-- QUIZ -->
+      <div id="quiz" class="quiz-secao">
+        <h2>Quiz do módulo <span class="ex-contador" id="excount-intro"></span></h2>
+        <p>12 questões sobre a teoria acima. Responda todas e clique em Verificar.</p>
+        <div id="quiz-intro"></div>
+        <div class="quiz-resultado" id="res-intro"></div>
+        <div class="quiz-acoes">
+          <button class="btn-verificar" id="btn-quiz-intro" onclick="verificarQuiz()">Verificar respostas</button>
+        </div>
+      </div>
+
+      <!-- DESAFIOS DE CÓDIGO -->
+      <div id="codigo" class="coding-secao">
+        <h2>Desafios de código</h2>
+        <div class="aviso-saida">
+          <span class="aviso-icone">⚠️</span>
+          <div>
+            <strong>Atenção:</strong> sua saída deve ser <em>exatamente igual</em> à saída esperada —
+            incluindo letras maiúsculas, minúsculas, acentos, espaços e quebras de linha.
+            Qualquer diferença, mesmo uma letra, resulta em "Quase!".
+          </div>
+        </div>
+        <p>5 exercícios com compilação real via Judge0. Complete todos para 100% no módulo!</p>
+
+        <!-- DESAFIO 1 -->
+        <div class="exercicio-card">
+          <div class="exercicio-header">
+            <span class="exercicio-num">Desafio 1</span>
+            <span class="exercicio-dificuldade dif-facil">Fácil</span>
+          </div>
+          <div class="exercicio-enunciado">
+            <h3>Hello, World!</h3>
+            <p>Escreva um programa completo em C que imprima exatamente o texto abaixo. Inclua o <code>#include</code>, o <code>main()</code> e o <code>return 0</code>.</p>
+            <div class="saida-esperada"><strong>Saída esperada</strong>Hello, World!</div>
+            <div class="dica-box"><span>💡</span><span>Use <code>printf("Hello, World!\n")</code> dentro da função main.</span></div>
+          </div>
+          <div class="editor-topo">
+            <span><span class="editor-lang">C</span> &nbsp; solucao.c</span>
+            <button class="btn-limpar" onclick="limparEditor('intro_1')">↺ Limpar</button>
+          </div>
+          <textarea class="editor-codigo" id="editor-intro_1" spellcheck="false" placeholder="Escreva seu código aqui..."></textarea>
+          <div class="terminal">
+            <div class="terminal-label">Saída do programa</div>
+            <div class="terminal-output aguardando" id="saida-intro_1">Clique em "Executar" para ver o resultado...</div>
+          </div>
+          <div class="exercicio-rodape">
+            <div class="feedback-exercicio" id="feedback-intro_1"></div>
+            <button class="btn-executar" id="btn-intro_1" onclick="executar('intro_1', 'Hello, World!')">
+              <div class="spinner" id="spin-intro_1"></div>▶ Executar
+            </button>
+          </div>
+        </div>
+
+        <!-- DESAFIO 2 -->
+        <div class="exercicio-card">
+          <div class="exercicio-header">
+            <span class="exercicio-num">Desafio 2</span>
+            <span class="exercicio-dificuldade dif-facil">Fácil</span>
+          </div>
+          <div class="exercicio-enunciado">
+            <h3>Duas mensagens</h3>
+            <p>Imprima exatamente duas linhas:</p>
+            <div class="saida-esperada"><strong>Saída esperada</strong>Meu nome e: C
+Ano de criacao: 1972</div>
+            <div class="dica-box"><span>💡</span><span>Use dois <code>printf()</code> separados, cada um com <code>\n</code> no final.</span></div>
+          </div>
+          <div class="editor-topo">
+            <span><span class="editor-lang">C</span> &nbsp; solucao.c</span>
+            <button class="btn-limpar" onclick="limparEditor('intro_2')">↺ Limpar</button>
+          </div>
+          <textarea class="editor-codigo" id="editor-intro_2" spellcheck="false" placeholder="Escreva seu código aqui..."></textarea>
+          <div class="terminal">
+            <div class="terminal-label">Saída do programa</div>
+            <div class="terminal-output aguardando" id="saida-intro_2">Clique em "Executar" para ver o resultado...</div>
+          </div>
+          <div class="exercicio-rodape">
+            <div class="feedback-exercicio" id="feedback-intro_2"></div>
+            <button class="btn-executar" id="btn-intro_2" onclick="executar('intro_2', 'Meu nome e: C\nAno de criacao: 1972')">
+              <div class="spinner" id="spin-intro_2"></div>▶ Executar
+            </button>
+          </div>
+        </div>
+
+        <!-- DESAFIO 3 -->
+        <div class="exercicio-card">
+          <div class="exercicio-header">
+            <span class="exercicio-num">Desafio 3</span>
+            <span class="exercicio-dificuldade dif-facil">Fácil</span>
+          </div>
+          <div class="exercicio-enunciado">
+            <h3>Usando tabulação</h3>
+            <p>Use <code>\t</code> para imprimir uma tabela alinhada com este formato exato:</p>
+            <div class="saida-esperada"><strong>Saída esperada</strong>Nome	Nota
+Ana	10
+Pedro	8</div>
+            <div class="dica-box"><span>💡</span><span>Coloque <code>\t</code> entre o nome e a nota, e <code>\n</code> para quebrar cada linha.</span></div>
+          </div>
+          <div class="editor-topo">
+            <span><span class="editor-lang">C</span> &nbsp; solucao.c</span>
+            <button class="btn-limpar" onclick="limparEditor('intro_3')">↺ Limpar</button>
+          </div>
+          <textarea class="editor-codigo" id="editor-intro_3" spellcheck="false" placeholder="Escreva seu código aqui..."></textarea>
+          <div class="terminal">
+            <div class="terminal-label">Saída do programa</div>
+            <div class="terminal-output aguardando" id="saida-intro_3">Clique em "Executar" para ver o resultado...</div>
+          </div>
+          <div class="exercicio-rodape">
+            <div class="feedback-exercicio" id="feedback-intro_3"></div>
+            <button class="btn-executar" id="btn-intro_3" onclick="executar('intro_3', 'Nome\tNota\nAna\t10\nPedro\t8')">
+              <div class="spinner" id="spin-intro_3"></div>▶ Executar
+            </button>
+          </div>
+        </div>
+
+        <!-- DESAFIO 4 -->
+        <div class="exercicio-card">
+          <div class="exercicio-header">
+            <span class="exercicio-num">Desafio 4</span>
+            <span class="exercicio-dificuldade dif-medio">Médio</span>
+          </div>
+          <div class="exercicio-enunciado">
+            <h3>Quadrado de asteriscos</h3>
+            <p>Imprima um quadrado 5×5 de asteriscos com bordas sólidas e interior vazio:</p>
+            <div class="saida-esperada"><strong>Saída esperada</strong>*****
+*   *
+*   *
+*   *
+*****</div>
+            <div class="dica-box"><span>💡</span><span>Use 5 chamadas de printf. As linhas do meio têm asterisco, 3 espaços, asterisco.</span></div>
+          </div>
+          <div class="editor-topo">
+            <span><span class="editor-lang">C</span> &nbsp; solucao.c</span>
+            <button class="btn-limpar" onclick="limparEditor('intro_4')">↺ Limpar</button>
+          </div>
+          <textarea class="editor-codigo" id="editor-intro_4" spellcheck="false" placeholder="Escreva seu código aqui..."></textarea>
+          <div class="terminal">
+            <div class="terminal-label">Saída do programa</div>
+            <div class="terminal-output aguardando" id="saida-intro_4">Clique em "Executar" para ver o resultado...</div>
+          </div>
+          <div class="exercicio-rodape">
+            <div class="feedback-exercicio" id="feedback-intro_4"></div>
+            <button class="btn-executar" id="btn-intro_4" onclick="executar('intro_4', '*****\n*   *\n*   *\n*   *\n*****')">
+              <div class="spinner" id="spin-intro_4"></div>▶ Executar
+            </button>
+          </div>
+        </div>
+
+        <!-- DESAFIO 5 -->
+        <div class="exercicio-card">
+          <div class="exercicio-header">
+            <span class="exercicio-num">Desafio 5</span>
+            <span class="exercicio-dificuldade dif-medio">Médio</span>
+          </div>
+          <div class="exercicio-enunciado">
+            <h3>Cartão de visita</h3>
+            <p>Imprima um cartão de visita formatado exatamente assim (20 sinais de igual nas bordas):</p>
+            <div class="saida-esperada"><strong>Saída esperada</strong>====================
+  Nome: Aprenda.C
+  Linguagem: C
+  Ano: 1972
+====================</div>
+            <div class="dica-box"><span>💡</span><span>Conte os caracteres: 20 sinais <code>=</code> em cada borda. As linhas do meio têm 2 espaços de recuo.</span></div>
+          </div>
+          <div class="editor-topo">
+            <span><span class="editor-lang">C</span> &nbsp; solucao.c</span>
+            <button class="btn-limpar" onclick="limparEditor('intro_5')">↺ Limpar</button>
+          </div>
+          <textarea class="editor-codigo" id="editor-intro_5" spellcheck="false" placeholder="Escreva seu código aqui..."></textarea>
+          <div class="terminal">
+            <div class="terminal-label">Saída do programa</div>
+            <div class="terminal-output aguardando" id="saida-intro_5">Clique em "Executar" para ver o resultado...</div>
+          </div>
+          <div class="exercicio-rodape">
+            <div class="feedback-exercicio" id="feedback-intro_5"></div>
+            <button class="btn-executar" id="btn-intro_5" onclick="executar('intro_5', '====================\n  Nome: Aprenda.C\n  Linguagem: C\n  Ano: 1972\n====================')">
+              <div class="spinner" id="spin-intro_5"></div>▶ Executar
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="nav-modulo">
+        <a href="../../index.html" class="btn-nav"><span>←</span><span><span class="nav-label">Voltar para</span><span class="nav-titulo">Página inicial</span></span></a>
+        <a href="../variaveis/index.html" class="btn-nav"><span><span class="nav-label">Próximo módulo</span><span class="nav-titulo">Variáveis e tipos</span></span><span>→</span></a>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../verificador.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+  // ── BOTÃO AVALIAR (aparece ao concluir módulo 1) ──
+  (function() {
+    function criarBotaoAvaliar() {
+      if (document.getElementById('btn-avaliacao-modulo')) return;
+      var btn = document.createElement('a');
+      btn.id = 'btn-avaliacao-modulo';
+      btn.href = 'https://forms.gle/iqquYnGKmpm8BdcW6';
+      btn.target = '_blank';
+      btn.rel = 'noopener';
+      btn.title = 'Avaliar a plataforma';
+      btn.style.cssText = 'position:fixed;bottom:24px;right:24px;background:#982424;color:#fff;border-radius:50px;padding:10px 18px;font-size:13px;font-weight:600;text-decoration:none;box-shadow:0 4px 16px rgba(152,36,36,0.3);z-index:999;display:flex;align-items:center;gap:8px;transition:background 0.2s;';
+      btn.innerHTML = '&#128203; Avaliar';
+      btn.onmouseenter = function() { this.style.background = '#6b0000'; };
+      btn.onmouseleave = function() { this.style.background = '#982424'; };
+      document.body.appendChild(btn);
+    }
+    // Verifica imediatamente ao carregar
+    document.addEventListener('DOMContentLoaded', criarBotaoAvaliar);
+  })();
+  </script>
+</body>
+</html>

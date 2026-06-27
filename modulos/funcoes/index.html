@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo 4 — Funções · Aprenda.C</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Aprenda<span class="logo-accent">.</span>C</div>
+    <div class="nav-links"><a href="../../index.html">Início</a><a href="../../index.html#modulos">Módulos</a></div>
+    
+  </nav>
+  <div class="modulo-progresso">
+    <span class="progresso-texto" id="texto-progresso">Quiz: pendente · Código: 0 de 5</span>
+    <div class="progresso-barra"><div class="progresso-fill" id="barra-progresso" style="width:0%"></div></div>
+    <span class="progresso-texto" id="pct-progresso">0%</span>
+  </div>
+  <div class="modulo-container">
+    <aside class="sidebar">
+      <div class="sidebar-titulo">Módulo 4 — Funções</div>
+      <div class="sidebar-item ativo" onclick="irPara('teoria')"><span class="icone-status">📖</span> Teoria</div>
+      <div class="sidebar-item" onclick="irPara('quiz')"><span class="icone-status">🎯</span> Quiz (15 questões)</div>
+      <div class="sidebar-item" onclick="irPara('codigo')"><span class="icone-status">⌨️</span> Desafios (5 exercícios)</div>
+    </aside>
+    <main class="conteudo-principal">
+      <div class="modulo-badge"><a href="../../index.html">Início</a> › Módulo 4</div>
+      <h1 class="modulo-titulo">Funções</h1>
+      <p class="modulo-desc">Aprenda a criar funções para organizar e reutilizar seu código em C.</p>
+
+      <div id="teoria" class="teoria-secao">
+        <h2>O que são funções?</h2>
+        <p>Uma função é um bloco de código com nome próprio que pode ser chamado várias vezes. Elas tornam o código mais <strong>organizado</strong>, <strong>legível</strong> e <strong>reutilizável</strong>. O <code>main()</code> que você já conhece é uma função!</p>
+
+        <h2>Estrutura de uma função</h2>
+        <div class="codigo-exemplo">
+          <div class="topo"><span>estrutura.c</span></div>
+          <pre><span class="cm">// tipo_retorno  nome  (parâmetros)</span>
+<span class="kw">int</span> <span class="fn">somar</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) {
+    <span class="kw">return</span> a + b;      <span class="cm">// retorna o resultado</span>
+}
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="kw">int</span> resultado = <span class="fn">somar</span>(<span class="num">3</span>, <span class="num">5</span>);  <span class="cm">// chama a função</span>
+    <span class="fn">printf</span>(<span class="str">"%d\n"</span>, resultado);    <span class="cm">// imprime 8</span>
+    <span class="kw">return</span> <span class="num">0</span>;
+}</pre>
+        </div>
+
+        <h2>Tipos de retorno</h2>
+        <div class="tabela-tipos">
+          <div class="tipo-row header"><span>Tipo</span><span>Uso</span><span>Exemplo</span></div>
+          <div class="tipo-row"><span><code>int</code></span><span>Retorna inteiro</span><span><code>int somar(...)</code></span></div>
+          <div class="tipo-row"><span><code>float</code></span><span>Retorna decimal</span><span><code>float media(...)</code></span></div>
+          <div class="tipo-row"><span><code>void</code></span><span>Não retorna nada</span><span><code>void imprimir(...)</code></span></div>
+          <div class="tipo-row"><span><code>char</code></span><span>Retorna caractere</span><span><code>char inicial(...)</code></span></div>
+        </div>
+
+        <h2>Funções void — sem retorno</h2>
+        <div class="codigo-exemplo">
+          <div class="topo"><span>void.c</span></div>
+          <pre><span class="kw">void</span> <span class="fn">saudacao</span>() {
+    <span class="fn">printf</span>(<span class="str">"Ola, seja bem-vindo!\n"</span>);
+    <span class="cm">// não precisa de return</span>
+}
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="fn">saudacao</span>();   <span class="cm">// chama a função</span>
+    <span class="fn">saudacao</span>();   <span class="cm">// chama de novo — reutilizável!</span>
+    <span class="kw">return</span> <span class="num">0</span>;
+}</pre>
+        </div>
+
+        <h2>Protótipo de função</h2>
+        <p>Em C, se a função é definida <strong>depois</strong> do <code>main</code>, você precisa declará-la antes (protótipo):</p>
+        <div class="codigo-exemplo">
+          <div class="topo"><span>prototipo.c</span></div>
+          <pre><span class="kw">#include</span> <span class="str">&lt;stdio.h&gt;</span>
+
+<span class="kw">int</span> <span class="fn">dobro</span>(<span class="kw">int</span> n);   <span class="cm">// protótipo — avisa que a função existe</span>
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="fn">printf</span>(<span class="str">"%d\n"</span>, <span class="fn">dobro</span>(<span class="num">5</span>));
+    <span class="kw">return</span> <span class="num">0</span>;
+}
+
+<span class="kw">int</span> <span class="fn">dobro</span>(<span class="kw">int</span> n) {    <span class="cm">// definição completa abaixo</span>
+    <span class="kw">return</span> n * <span class="num">2</span>;
+}</pre>
+        </div>
+        <div class="destaque">💡 Dica: para evitar protótipos, defina sempre suas funções <strong>antes</strong> do main().</div>
+
+        <h2>Recursão e escopo de variáveis</h2>
+        <div class="codigo-exemplo">
+          <div class="topo"><span>recursao.c</span></div>
+          <pre><span class="cm">// Recursão: função que chama a si mesma</span>
+<span class="kw">int</span> <span class="fn">fatorial</span>(<span class="kw">int</span> n) {
+    <span class="kw">if</span> (n <= <span class="num">1</span>) <span class="kw">return</span> <span class="num">1</span>;   <span class="cm">// condição de parada obrigatória!</span>
+    <span class="kw">return</span> n * <span class="fn">fatorial</span>(n - <span class="num">1</span>);
+}
+<span class="cm">// fatorial(4) = 4*3*2*1 = 24</span>
+
+<span class="cm">// Escopo: variável local só existe dentro da função</span>
+<span class="kw">int</span> x = <span class="num">10</span>;  <span class="cm">// global — visível em todo o arquivo</span>
+
+<span class="kw">void</span> <span class="fn">teste</span>() {
+    <span class="kw">int</span> x = <span class="num">99</span>;  <span class="cm">// local — "esconde" a global dentro desta função</span>
+    <span class="fn">printf</span>(<span class="str">"%d\n"</span>, x);  <span class="cm">// imprime 99</span>
+}</pre>
+        </div>
+        <div class="destaque">⚠️ Toda recursão precisa de uma <strong>condição de parada</strong>, senão causa estouro de pilha (stack overflow).</div>
+      </div>
+
+      <div id="quiz" class="quiz-secao">
+        <h2>Quiz do módulo <span class="ex-contador" id="excount-funcoes"></span></h2>
+        <p>Responda todas as questões e clique em Verificar.</p>
+        <div id="quiz-funcoes"></div>
+        <div class="quiz-resultado" id="res-funcoes"></div>
+        <div class="quiz-acoes">
+          <button class="btn-verificar" id="btn-quiz-funcoes" onclick="verificarQuiz()">Verificar respostas</button>
+        </div>
+      </div>
+
+      <div id="codigo" class="coding-secao">
+        <h2>Desafios de código</h2>
+        <div class="aviso-saida">
+          <span class="aviso-icone">⚠️</span>
+          <div>
+            <strong>Atenção:</strong> sua saída deve ser <em>exatamente igual</em> à saída esperada —
+            incluindo letras maiúsculas, minúsculas, acentos, espaços e quebras de linha.
+            Qualquer diferença, mesmo uma letra, resulta em "Quase!".
+          </div>
+        </div>
+        <p>Escreva código C real compilado e executado via Judge0!</p>
+
+        <div class="exercicio-card">
+          <div class="exercicio-header"><span class="exercicio-num">Desafio 1</span><span class="exercicio-dificuldade dif-facil">Fácil</span></div>
+          <div class="exercicio-enunciado">
+            <h3>Função de saudação</h3>
+            <p>Crie uma função <code>void saudacao()</code> que imprime a mensagem abaixo. Chame-a dentro do <code>main()</code>:</p>
+            <div class="saida-esperada"><strong>Saída esperada</strong>Ola, bem-vindo ao Aprenda C!</div>
+          </div>
+          <div class="editor-topo"><span><span class="editor-lang">C</span> &nbsp; solucao.c</span><button class="btn-limpar" onclick="limparEditor('fn_1', '')">↺ Limpar</button></div>
+          <textarea class="editor-codigo" id="editor-fn_1" spellcheck="false" placeholder="Escreva seu código aqui..."></textarea>
+          <div class="terminal"><div class="terminal-label">Saída do programa</div><div class="terminal-output aguardando" id="saida-fn_1">Clique em "Executar" para ver o resultado...</div></div>
+          <div class="exercicio-rodape">
+            <div class="feedback-exercicio" id="feedback-fn_1"></div>
+            <button class="btn-executar" id="btn-fn_1" onclick="executar('fn_1', 'Ola, bem-vindo ao Aprenda C!')"><div class="spinner" id="spin-fn_1"></div>▶ Executar</button>
+          </div>
+        </div>
+
+        <div class="exercicio-card">
+          <div class="exercicio-header"><span class="exercicio-num">Desafio 2</span><span class="exercicio-dificuldade dif-medio">Médio</span></div>
+          <div class="exercicio-enunciado">
+            <h3>Função de multiplicação</h3>
+            <p>Crie uma função <code>int multiplicar(int a, int b)</code> que retorna o produto dos dois números. No <code>main()</code>, chame com 4 e 7 e imprima:</p>
+            <div class="saida-esperada"><strong>Saída esperada</strong>4 x 7 = 28</div>
+            <div class="dica-box"><span>💡</span><span>A função deve retornar <code>a * b</code>. No main use <code>printf("4 x 7 = %d\n", multiplicar(4, 7))</code>.</span></div>
+          </div>
+          <div class="editor-topo"><span><span class="editor-lang">C</span> &nbsp; solucao.c</span><button class="btn-limpar" onclick="limparEditor('fn_2', '')">↺ Limpar</button></div>
+          <textarea class="editor-codigo" id="editor-fn_2" spellcheck="false" placeholder="Escreva seu código aqui..."></textarea>
+          <div class="terminal"><div class="terminal-label">Saída do programa</div><div class="terminal-output aguardando" id="saida-fn_2">Clique em "Executar" para ver o resultado...</div></div>
+          <div class="exercicio-rodape">
+            <div class="feedback-exercicio" id="feedback-fn_2"></div>
+            <button class="btn-executar" id="btn-fn_2" onclick="executar('fn_2', '4 x 7 = 28')"><div class="spinner" id="spin-fn_2"></div>▶ Executar</button>
+          </div>
+        </div>
+
+        <!-- DESAFIO 3 -->
+        <div class="exercicio-card">
+          <div class="exercicio-header">
+            <span class="exercicio-num">Desafio 3</span>
+            <span class="exercicio-dificuldade dif-medio">Médio</span>
+          </div>
+          <div class="exercicio-enunciado">
+            <h3>Função maior valor</h3>
+            <p>Crie uma função <code>int maior(int a, int b)</code> que retorna o maior entre dois números. Chame com 15 e 8 e imprima:</p>
+            <div class="saida-esperada"><strong>Saída esperada</strong>O maior e: 15</div>
+            <div class="dica-box"><span>💡</span><span>Use <code>if(a > b) return a; else return b;</code> dentro da função.</span></div>
+          </div>
+          <div class="editor-topo">
+            <span><span class="editor-lang">C</span> &nbsp; solucao.c</span>
+            <button class="btn-limpar" onclick="limparEditor('fn_3', '')">↺ Limpar</button>
+          </div>
+          <textarea class="editor-codigo" id="editor-fn_3" spellcheck="false" placeholder="Escreva seu código aqui..."></textarea>
+          <div class="terminal">
+            <div class="terminal-label">Saída do programa</div>
+            <div class="terminal-output aguardando" id="saida-fn_3">Clique em "Executar" para ver o resultado...</div>
+          </div>
+          <div class="exercicio-rodape">
+            <div class="feedback-exercicio" id="feedback-fn_3"></div>
+            <button class="btn-executar" id="btn-fn_3" onclick="executar('fn_3', 'O maior e: 15')"><div class="spinner" id="spin-fn_3"></div>▶ Executar</button>
+          </div>
+        </div>
+
+        <!-- DESAFIO 4 -->
+        <div class="exercicio-card">
+          <div class="exercicio-header">
+            <span class="exercicio-num">Desafio 4</span>
+            <span class="exercicio-dificuldade dif-dificil">Difícil</span>
+          </div>
+          <div class="exercicio-enunciado">
+            <h3>Fatorial recursivo</h3>
+            <p>Crie uma função recursiva <code>int fatorial(int n)</code>. Calcule e imprima o fatorial de 5:</p>
+            <div class="saida-esperada"><strong>Saída esperada</strong>5! = 120</div>
+            <div class="dica-box"><span>💡</span><span>Condição de parada: <code>if(n &lt;= 1) return 1;</code>. Chamada recursiva: <code>return n * fatorial(n-1);</code></span></div>
+          </div>
+          <div class="editor-topo">
+            <span><span class="editor-lang">C</span> &nbsp; solucao.c</span>
+            <button class="btn-limpar" onclick="limparEditor('fn_4', '')">↺ Limpar</button>
+          </div>
+          <textarea class="editor-codigo" id="editor-fn_4" spellcheck="false" placeholder="Escreva seu código aqui..."></textarea>
+          <div class="terminal">
+            <div class="terminal-label">Saída do programa</div>
+            <div class="terminal-output aguardando" id="saida-fn_4">Clique em "Executar" para ver o resultado...</div>
+          </div>
+          <div class="exercicio-rodape">
+            <div class="feedback-exercicio" id="feedback-fn_4"></div>
+            <button class="btn-executar" id="btn-fn_4" onclick="executar('fn_4', '5! = 120')"><div class="spinner" id="spin-fn_4"></div>▶ Executar</button>
+          </div>
+        </div>
+        <!-- DESAFIO 5 -->
+        <div class="exercicio-card">
+          <div class="exercicio-header">
+            <span class="exercicio-num">Desafio 5</span>
+            <span class="exercicio-dificuldade dif-dificil">Difícil</span>
+          </div>
+          <div class="exercicio-enunciado">
+            <h3>Soma recursiva</h3>
+            <p>Crie uma função recursiva <code>int soma(int n)</code> que retorna a soma de 1 até n. Calcule e imprima a soma de 1 a 5:</p>
+            <div class="saida-esperada"><strong>Saída esperada</strong>Soma de 1 a 5: 15</div>
+            <div class="dica-box"><span>💡</span><span>Condição de parada: <code>if(n <= 0) return 0;</code>. Chamada recursiva: <code>return n + soma(n-1);</code></span></div>
+          </div>
+          <div class="editor-topo">
+            <span><span class="editor-lang">C</span> &nbsp; solucao.c</span>
+            <button class="btn-limpar" onclick="limparEditor('fn_5')">↺ Limpar</button>
+          </div>
+          <textarea class="editor-codigo" id="editor-fn_5" spellcheck="false" placeholder="Escreva seu código aqui..."></textarea>
+          <div class="terminal">
+            <div class="terminal-label">Saída do programa</div>
+            <div class="terminal-output aguardando" id="saida-fn_5">Clique em "Executar" para ver o resultado...</div>
+          </div>
+          <div class="exercicio-rodape">
+            <div class="feedback-exercicio" id="feedback-fn_5"></div>
+            <button class="btn-executar" id="btn-fn_5" onclick="executar('fn_5', 'Soma de 1 a 5: 15')"><div class="spinner" id="spin-fn_5"></div>▶ Executar</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="nav-modulo">
+        <a href="../controle/index.html" class="btn-nav"><span>←</span><span><span class="nav-label">Módulo anterior</span><span class="nav-titulo">Estruturas de controle</span></span></a>
+        <a href="../ponteiros/index.html" class="btn-nav"><span><span class="nav-label">Próximo módulo</span><span class="nav-titulo">Ponteiros</span></span><span>→</span></a>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../verificador.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+  // ── BOTÃO AVALIAR (aparece ao concluir módulo 1) ──
+  (function() {
+    function criarBotaoAvaliar() {
+      if (document.getElementById('btn-avaliacao-modulo')) return;
+      var btn = document.createElement('a');
+      btn.id = 'btn-avaliacao-modulo';
+      btn.href = 'https://forms.gle/iqquYnGKmpm8BdcW6';
+      btn.target = '_blank';
+      btn.rel = 'noopener';
+      btn.title = 'Avaliar a plataforma';
+      btn.style.cssText = 'position:fixed;bottom:24px;right:24px;background:#982424;color:#fff;border-radius:50px;padding:10px 18px;font-size:13px;font-weight:600;text-decoration:none;box-shadow:0 4px 16px rgba(152,36,36,0.3);z-index:999;display:flex;align-items:center;gap:8px;transition:background 0.2s;';
+      btn.innerHTML = '&#128203; Avaliar';
+      btn.onmouseenter = function() { this.style.background = '#6b0000'; };
+      btn.onmouseleave = function() { this.style.background = '#982424'; };
+      document.body.appendChild(btn);
+    }
+    // Verifica imediatamente ao carregar
+    document.addEventListener('DOMContentLoaded', criarBotaoAvaliar);
+  })();
+  </script>
+</body>
+</html>

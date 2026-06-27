@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo 2 — Variáveis e tipos · Aprenda.C</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Aprenda<span class="logo-accent">.</span>C</div>
+    <div class="nav-links"><a href="../../index.html">Início</a><a href="../../index.html#modulos">Módulos</a></div>
+    
+  </nav>
+  <div class="modulo-progresso">
+    <span class="progresso-texto" id="texto-progresso">Quiz: pendente · Código: 0 de 5</span>
+    <div class="progresso-barra"><div class="progresso-fill" id="barra-progresso" style="width:0%"></div></div>
+    <span class="progresso-texto" id="pct-progresso">0%</span>
+  </div>
+  <div class="modulo-container">
+    <aside class="sidebar">
+      <div class="sidebar-titulo">Módulo 2 — Variáveis e tipos</div>
+      <div class="sidebar-item ativo" onclick="irPara('teoria')"><span class="icone-status">📖</span> Teoria</div>
+      <div class="sidebar-item" onclick="irPara('quiz')"><span class="icone-status">🎯</span> Quiz (9 questões)</div>
+      <div class="sidebar-item" onclick="irPara('codigo')"><span class="icone-status">⌨️</span> Desafios (5 exercícios)</div>
+    </aside>
+    <main class="conteudo-principal">
+      <div class="modulo-badge"><a href="../../index.html">Início</a> › Módulo 2</div>
+      <h1 class="modulo-titulo">Variáveis e tipos de dados</h1>
+      <p class="modulo-desc">Aprenda a declarar variáveis, entenda os tipos primitivos do C e como ler e imprimir dados.</p>
+
+      <div id="teoria" class="teoria-secao">
+        <h2>O que são variáveis?</h2>
+        <p>Uma variável é um espaço nomeado na memória RAM onde guardamos um valor durante a execução do programa. Em C, toda variável precisa ser declarada com um <strong>tipo</strong> antes de ser usada.</p>
+        <h2>Tipos primitivos em C</h2>
+        <div class="tabela-tipos">
+          <div class="tipo-row header"><span>Tipo</span><span>Tamanho</span><span>Faixa aproximada</span><span>Uso</span></div>
+          <div class="tipo-row"><span><code>int</code></span><span>4 bytes</span><span>−2 bi a +2 bi</span><span>Números inteiros</span></div>
+          <div class="tipo-row"><span><code>float</code></span><span>4 bytes</span><span>6–7 dígitos decimais</span><span>Decimais simples</span></div>
+          <div class="tipo-row"><span><code>double</code></span><span>8 bytes</span><span>15–16 dígitos decimais</span><span>Decimais precisos</span></div>
+          <div class="tipo-row"><span><code>char</code></span><span>1 byte</span><span>0 a 255 (ASCII)</span><span>Um caractere</span></div>
+          <div class="tipo-row"><span><code>long</code></span><span>8 bytes</span><span>Inteiros grandes</span><span>Contadores grandes</span></div>
+        </div>
+        <h2>Declarando e inicializando variáveis</h2>
+        <div class="codigo-exemplo">
+          <div class="topo"><span>declaracao.c</span></div>
+          <pre><span class="kw">int</span> idade = <span class="num">20</span>;
+<span class="kw">float</span> altura = <span class="num">1.75</span>;
+<span class="kw">double</span> pi = <span class="num">3.14159265358979</span>;
+<span class="kw">char</span> letra = <span class="str">'A'</span>;        <span class="cm">// char usa aspas simples!</span>
+
+<span class="cm">// CUIDADO: declarar sem inicializar = lixo de memória</span>
+<span class="kw">int</span> x;    <span class="cm">// x tem valor indefinido!</span>
+x = <span class="num">10</span>;  <span class="cm">// agora está seguro</span></pre>
+        </div>
+        <h2>printf() — Especificadores de formato</h2>
+        <div class="tabela-tipos">
+          <div class="tipo-row header"><span>Especificador</span><span>Tipo</span><span>Exemplo</span></div>
+          <div class="tipo-row"><span><code>%d</code></span><span><code>int</code></span><span><code>42</code></span></div>
+          <div class="tipo-row"><span><code>%f</code></span><span><code>float/double</code></span><span><code>3.140000</code></span></div>
+          <div class="tipo-row"><span><code>%.2f</code></span><span><code>float/double</code></span><span><code>3.14</code></span></div>
+          <div class="tipo-row"><span><code>%c</code></span><span><code>char</code></span><span><code>A</code></span></div>
+        </div>
+        <h2>scanf() — Lendo dados do usuário</h2>
+        <div class="codigo-exemplo">
+          <div class="topo"><span>leitura.c</span></div>
+          <pre><span class="kw">int</span> idade;
+<span class="fn">printf</span>(<span class="str">"Digite sua idade: "</span>);
+<span class="fn">scanf</span>(<span class="str">"%d"</span>, &amp;idade);   <span class="cm">// & é obrigatório!</span>
+<span class="fn">printf</span>(<span class="str">"Voce tem %d anos.\n"</span>, idade);</pre>
+        </div>
+        <h2>Operadores aritméticos</h2>
+        <div class="codigo-exemplo">
+          <div class="topo"><span>operadores.c</span></div>
+          <pre><span class="kw">int</span> a = <span class="num">10</span>, b = <span class="num">3</span>;
+<span class="fn">printf</span>(<span class="str">"%d\n"</span>, a + b);   <span class="cm">// 13 — soma</span>
+<span class="fn">printf</span>(<span class="str">"%d\n"</span>, a - b);   <span class="cm">// 7  — subtração</span>
+<span class="fn">printf</span>(<span class="str">"%d\n"</span>, a * b);   <span class="cm">// 30 — multiplicação</span>
+<span class="fn">printf</span>(<span class="str">"%d\n"</span>, a / b);   <span class="cm">// 3  — divisão INTEIRA</span>
+<span class="fn">printf</span>(<span class="str">"%d\n"</span>, a % b);   <span class="cm">// 1  — resto da divisão</span></pre>
+        </div>
+        <h2>Constantes com #define e const</h2>
+        <div class="codigo-exemplo">
+          <div class="topo"><span>constantes.c</span></div>
+          <pre><span class="kw">#include</span> <span class="str">&lt;stdio.h&gt;</span>
+<span class="kw">#define</span> PI <span class="num">3.14159</span>      <span class="cm">// substituição textual pelo pré-processador</span>
+<span class="kw">#define</span> MAX <span class="num">100</span>
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="kw">const int</span> LIMITE = <span class="num">50</span>;  <span class="cm">// const: variável que não pode mudar</span>
+    <span class="kw">float</span> area = PI * <span class="num">5.0</span> * <span class="num">5.0</span>;
+    <span class="fn">printf</span>(<span class="str">"Area: %.2f\n"</span>, area);   <span class="cm">// Area: 78.54</span>
+    <span class="fn">printf</span>(<span class="str">"Max: %d\n"</span>, MAX);
+    <span class="fn">printf</span>(<span class="str">"Limite: %d\n"</span>, LIMITE);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</pre>
+        </div>
+        <div class="destaque">💡 Use <code>#define</code> para valores que nunca mudam e <code>const</code> quando quiser que o compilador verifique o tipo da constante.</div>
+      </div>
+
+      <div id="quiz" class="quiz-secao">
+        <h2>Quiz do módulo <span class="ex-contador" id="excount-variaveis"></span></h2>
+        <p>Responda todas as questões e clique em Verificar.</p>
+        <div id="quiz-variaveis"></div>
+        <div class="quiz-resultado" id="res-variaveis"></div>
+        <div class="quiz-acoes">
+          <button class="btn-verificar" id="btn-quiz-variaveis" onclick="verificarQuiz()">Verificar respostas</button>
+        </div>
+      </div>
+
+      <div id="codigo" class="coding-secao">
+        <h2>Desafios de código</h2>
+        <div class="aviso-saida">
+          <span class="aviso-icone">⚠️</span>
+          <div>
+            <strong>Atenção:</strong> sua saída deve ser <em>exatamente igual</em> à saída esperada —
+            incluindo letras maiúsculas, minúsculas, acentos, espaços e quebras de linha.
+            Qualquer diferença, mesmo uma letra, resulta em "Quase!".
+          </div>
+        </div>
+        <p>Escreva código C real. Ele será compilado e executado de verdade via Judge0!</p>
+        <div class="exercicio-card">
+          <div class="exercicio-header"><span class="exercicio-num">Desafio 1</span><span class="exercicio-dificuldade dif-facil">Fácil</span></div>
+          <div class="exercicio-enunciado">
+            <h3>Apresentação com variáveis</h3>
+            <p>Declare <code>int idade = 18</code> e <code>float altura = 1.75</code>. Imprima:</p>
+            <div class="saida-esperada"><strong>Saída esperada</strong>Idade: 18
+Altura: 1.75</div>
+            <div class="dica-box"><span>💡</span><span>Use <code>%d</code> para int e <code>%.2f</code> para float no printf().</span></div>
+          </div>
+          <div class="editor-topo"><span><span class="editor-lang">C</span> &nbsp; solucao.c</span><button class="btn-limpar" onclick="limparEditor('var_1', '')">↺ Limpar</button></div>
+          <textarea class="editor-codigo" id="editor-var_1" spellcheck="false" placeholder="Escreva seu código aqui..."></textarea>
+          <div class="terminal"><div class="terminal-label">Saída do programa</div><div class="terminal-output aguardando" id="saida-var_1">Clique em "Executar" para ver o resultado...</div></div>
+          <div class="exercicio-rodape">
+            <div class="feedback-exercicio" id="feedback-var_1"></div>
+            <button class="btn-executar" id="btn-var_1" onclick="executar('var_1', 'Idade: 18\nAltura: 1.75')"><div class="spinner" id="spin-var_1"></div>▶ Executar</button>
+          </div>
+        </div>
+        <div class="exercicio-card">
+          <div class="exercicio-header"><span class="exercicio-num">Desafio 2</span><span class="exercicio-dificuldade dif-medio">Médio</span></div>
+          <div class="exercicio-enunciado">
+            <h3>Cálculo de área</h3>
+            <p>Declare <code>float base = 5.0</code> e <code>float altura = 3.0</code>. Calcule a área do triângulo e imprima:</p>
+            <div class="saida-esperada"><strong>Saída esperada</strong>Area do triangulo: 7.50</div>
+            <div class="dica-box"><span>💡</span><span>Área = (base * altura) / 2. Use <code>%.2f</code> para imprimir.</span></div>
+          </div>
+          <div class="editor-topo"><span><span class="editor-lang">C</span> &nbsp; solucao.c</span><button class="btn-limpar" onclick="limparEditor('var_2', '')">↺ Limpar</button></div>
+          <textarea class="editor-codigo" id="editor-var_2" spellcheck="false" placeholder="Escreva seu código aqui..."></textarea>
+          <div class="terminal"><div class="terminal-label">Saída do programa</div><div class="terminal-output aguardando" id="saida-var_2">Clique em "Executar" para ver o resultado...</div></div>
+          <div class="exercicio-rodape">
+            <div class="feedback-exercicio" id="feedback-var_2"></div>
+            <button class="btn-executar" id="btn-var_2" onclick="executar('var_2', 'Area do triangulo: 7.50')"><div class="spinner" id="spin-var_2"></div>▶ Executar</button>
+          </div>
+        </div>
+
+
+        <!-- DESAFIO 3 -->
+        <div class="exercicio-card">
+          <div class="exercicio-header">
+            <span class="exercicio-num">Desafio 3</span>
+            <span class="exercicio-dificuldade dif-medio">Médio</span>
+          </div>
+          <div class="exercicio-enunciado">
+            <h3>Cálculo de área do círculo</h3>
+            <p>Declare <code>float raio = 5.0</code> e use <code>#define PI 3.14159</code>. Calcule a área (PI × raio²) e imprima:</p>
+            <div class="saida-esperada"><strong>Saída esperada</strong>Raio: 5.00
+Area: 78.54</div>
+            <div class="dica-box"><span>💡</span><span>Coloque o <code>#define</code> antes do <code>main()</code>. Use <code>%.2f</code> para 2 casas decimais.</span></div>
+          </div>
+          <div class="editor-topo">
+            <span><span class="editor-lang">C</span> &nbsp; solucao.c</span>
+            <button class="btn-limpar" onclick="limparEditor('var_3')">↺ Limpar</button>
+          </div>
+          <textarea class="editor-codigo" id="editor-var_3" spellcheck="false" placeholder="Escreva seu código aqui..."></textarea>
+          <div class="terminal">
+            <div class="terminal-label">Saída do programa</div>
+            <div class="terminal-output aguardando" id="saida-var_3">Clique em "Executar" para ver o resultado...</div>
+          </div>
+          <div class="exercicio-rodape">
+            <div class="feedback-exercicio" id="feedback-var_3"></div>
+            <button class="btn-executar" id="btn-var_3" onclick="executar('var_3', 'Raio: 5.00\nArea: 78.54')">
+              <div class="spinner" id="spin-var_3"></div>▶ Executar
+            </button>
+          </div>
+        </div>
+
+        <!-- DESAFIO 4 -->
+        <div class="exercicio-card">
+          <div class="exercicio-header">
+            <span class="exercicio-num">Desafio 4</span>
+            <span class="exercicio-dificuldade dif-medio">Médio</span>
+          </div>
+          <div class="exercicio-enunciado">
+            <h3>Operadores aritméticos</h3>
+            <p>Declare <code>int a = 10</code> e <code>int b = 3</code>. Imprima a soma, subtração, multiplicação e resto:</p>
+            <div class="saida-esperada"><strong>Saída esperada</strong>Soma: 13
+Subtracao: 7
+Multiplicacao: 30
+Resto: 1</div>
+            <div class="dica-box"><span>💡</span><span>Use <code>+</code>, <code>-</code>, <code>*</code> e <code>%</code> com <code>%d</code> no printf.</span></div>
+          </div>
+          <div class="editor-topo">
+            <span><span class="editor-lang">C</span> &nbsp; solucao.c</span>
+            <button class="btn-limpar" onclick="limparEditor('var_4')">↺ Limpar</button>
+          </div>
+          <textarea class="editor-codigo" id="editor-var_4" spellcheck="false" placeholder="Escreva seu código aqui..."></textarea>
+          <div class="terminal">
+            <div class="terminal-label">Saída do programa</div>
+            <div class="terminal-output aguardando" id="saida-var_4">Clique em "Executar" para ver o resultado...</div>
+          </div>
+          <div class="exercicio-rodape">
+            <div class="feedback-exercicio" id="feedback-var_4"></div>
+            <button class="btn-executar" id="btn-var_4" onclick="executar('var_4', 'Soma: 13\nSubtracao: 7\nMultiplicacao: 30\nResto: 1')">
+              <div class="spinner" id="spin-var_4"></div>▶ Executar
+            </button>
+          </div>
+        </div>
+
+        <!-- DESAFIO 5 -->
+        <div class="exercicio-card">
+          <div class="exercicio-header">
+            <span class="exercicio-num">Desafio 5</span>
+            <span class="exercicio-dificuldade dif-dificil">Difícil</span>
+          </div>
+          <div class="exercicio-enunciado">
+            <h3>Conversão de temperatura</h3>
+            <p>Declare <code>float celsius = 100.0</code>. Converta para Fahrenheit (F = C × 1.8 + 32) e imprima:</p>
+            <div class="saida-esperada"><strong>Saída esperada</strong>Celsius: 100.00
+Fahrenheit: 212.00</div>
+            <div class="dica-box"><span>💡</span><span>Declare uma variável <code>float fahrenheit</code> e calcule antes do printf.</span></div>
+          </div>
+          <div class="editor-topo">
+            <span><span class="editor-lang">C</span> &nbsp; solucao.c</span>
+            <button class="btn-limpar" onclick="limparEditor('var_5')">↺ Limpar</button>
+          </div>
+          <textarea class="editor-codigo" id="editor-var_5" spellcheck="false" placeholder="Escreva seu código aqui..."></textarea>
+          <div class="terminal">
+            <div class="terminal-label">Saída do programa</div>
+            <div class="terminal-output aguardando" id="saida-var_5">Clique em "Executar" para ver o resultado...</div>
+          </div>
+          <div class="exercicio-rodape">
+            <div class="feedback-exercicio" id="feedback-var_5"></div>
+            <button class="btn-executar" id="btn-var_5" onclick="executar('var_5', 'Celsius: 100.00\nFahrenheit: 212.00')">
+              <div class="spinner" id="spin-var_5"></div>▶ Executar
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="nav-modulo">
+        <a href="../introducao/index.html" class="btn-nav"><span>←</span><span><span class="nav-label">Módulo anterior</span><span class="nav-titulo">Introdução ao C</span></span></a>
+        <a href="../controle/index.html" class="btn-nav"><span><span class="nav-label">Próximo módulo</span><span class="nav-titulo">Estruturas de controle</span></span><span>→</span></a>
+      </div>
+    </main>
+  </div>
+  <script src="../../verificador.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+  // ── BOTÃO AVALIAR (aparece ao concluir módulo 1) ──
+  (function() {
+    function criarBotaoAvaliar() {
+      if (document.getElementById('btn-avaliacao-modulo')) return;
+      var btn = document.createElement('a');
+      btn.id = 'btn-avaliacao-modulo';
+      btn.href = 'https://forms.gle/iqquYnGKmpm8BdcW6';
+      btn.target = '_blank';
+      btn.rel = 'noopener';
+      btn.title = 'Avaliar a plataforma';
+      btn.style.cssText = 'position:fixed;bottom:24px;right:24px;background:#982424;color:#fff;border-radius:50px;padding:10px 18px;font-size:13px;font-weight:600;text-decoration:none;box-shadow:0 4px 16px rgba(152,36,36,0.3);z-index:999;display:flex;align-items:center;gap:8px;transition:background 0.2s;';
+      btn.innerHTML = '&#128203; Avaliar';
+      btn.onmouseenter = function() { this.style.background = '#6b0000'; };
+      btn.onmouseleave = function() { this.style.background = '#982424'; };
+      document.body.appendChild(btn);
+    }
+    // Verifica imediatamente ao carregar
+    document.addEventListener('DOMContentLoaded', criarBotaoAvaliar);
+  })();
+  </script>
+</body>
+</html>
