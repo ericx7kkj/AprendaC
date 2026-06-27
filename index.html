@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aprenda.C — Aprenda C do zero</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Aprenda<span class="logo-accent">.</span>C</div>
+    <div class="nav-links">
+      <a href="#">Início</a>
+      <a href="#modulos">Módulos</a>
+      <a href="#sobre">Sobre</a>
+    </div>
+    
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="badge">Gratuito · Para iniciantes</span>
+      <h1>Aprenda linguagem <span class="highlight">C</span> do zero</h1>
+      <p>Teoria clara, exercícios interativos e desafios de código com compilação real para quem está começando agora.</p>
+      <div class="hero-btns">
+        <a href="#modulos" class="btn-primary">Começar agora</a>
+        <a href="#sobre" class="btn-secondary">Saiba mais</a>
+      </div>
+    </div>
+    <div class="hero-code">
+      <div class="code-window">
+        <div class="code-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="code-filename">main.c</span>
+        </div>
+        <pre class="code-body"><span class="kw">#include</span> <span class="str">&lt;stdio.h&gt;</span>
+
+<span class="kw">int</span> <span class="fn">main</span>() {
+    <span class="fn">printf</span>(<span class="str">"Hello, World!\n"</span>);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><span class="stat-num" id="stat-modulos">5</span><span class="stat-label">Módulos</span></div>
+    <div class="stat"><span class="stat-num" id="stat-exercicios">25</span><span class="stat-label">Exercícios</span></div>
+    <div class="stat"><span class="stat-num" id="stat-quizzes">66</span><span class="stat-label">Questões de Quiz</span></div>
+    <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Gratuito</span></div>
+  </section>
+
+  <div class="painel-progresso">
+    <div class="painel-inner">
+      <div class="painel-texto">
+        <h3>Seu progresso geral</h3>
+        <p id="painel-desc">Você ainda não começou nenhum módulo.</p>
+      </div>
+      <div class="painel-barra-wrap">
+        <div class="painel-barra"><div class="painel-fill" id="painel-fill" style="width:0%"></div></div>
+        <span class="painel-pct" id="painel-pct">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" id="modulos">
+    <div class="section-header">
+      <h2>Trilha de aprendizado</h2>
+      <p>Siga os módulos em ordem ou vá direto ao que precisa.</p>
+    </div>
+    <div class="modules-grid">
+
+      <button class="module-card" onclick="abrirModulo('intro')">
+        <div class="module-icon" style="background:#fdecea;">🏁</div>
+        <div class="module-info">
+          <h3>Módulo 1 — Introdução ao C</h3>
+          <p>História, estrutura, primeiro programa, compilação</p>
+          <div class="progress-bar"><div class="progress-fill" id="fill-intro" style="width:0%"></div></div>
+          <span class="progress-label" id="label-intro">Não iniciado</span>
+        </div>
+      </button>
+
+      <button class="module-card" onclick="abrirModulo('variaveis')">
+        <div class="module-icon" style="background:#eaf7ee;">📦</div>
+        <div class="module-info">
+          <h3>Módulo 2 — Variáveis e tipos</h3>
+          <p>int, float, double, char, scanf, operadores</p>
+          <div class="progress-bar"><div class="progress-fill" id="fill-variaveis" style="width:0%"></div></div>
+          <span class="progress-label" id="label-variaveis">Não iniciado</span>
+        </div>
+      </button>
+
+      <button class="module-card" onclick="abrirModulo('controle')">
+        <div class="module-icon" style="background:#fff8e8;">🔀</div>
+        <div class="module-info">
+          <h3>Módulo 3 — Estruturas de controle</h3>
+          <p>if/else, switch, for, while, do-while</p>
+          <div class="progress-bar"><div class="progress-fill" id="fill-controle" style="width:0%"></div></div>
+          <span class="progress-label" id="label-controle">Não iniciado</span>
+        </div>
+      </button>
+
+      <button class="module-card" onclick="abrirModulo('funcoes')">
+        <div class="module-icon" style="background:#fdf0f0;">&#9881;&#65039;</div>
+        <div class="module-info">
+          <h3>Módulo 4 — Funções</h3>
+          <p>Declaração, parâmetros, retorno, recursão</p>
+          <div class="progress-bar"><div class="progress-fill" id="fill-funcoes" style="width:0%"></div></div>
+          <span class="progress-label" id="label-funcoes">Não iniciado</span>
+        </div>
+      </button>
+
+      <button class="module-card" onclick="abrirModulo('ponteiros')">
+        <div class="module-icon" style="background:#eef3ff;">&#128204;</div>
+        <div class="module-info">
+          <h3>Módulo 5 — Ponteiros</h3>
+          <p>Endereços, referências, aritmética de ponteiros</p>
+          <div class="progress-bar"><div class="progress-fill" id="fill-ponteiros" style="width:0%"></div></div>
+          <span class="progress-label" id="label-ponteiros">Não iniciado</span>
+        </div>
+      </button>
+
+    </div>
+  </section>
+  </section>
+
+<section class="section section-alt" id="sobre">
+  <div class="section-header">
+    <h2>Sobre o projeto</h2>
+    <p>Desenvolvido pelo <strong>3º Semestre de Ciência da Computação da URI Santo Ângelo</strong> como projeto integrador, com o objetivo de tornar o aprendizado da linguagem C acessível e prático para todos os iniciantes.</p>
+    <p style="margin-top: 12px; font-size: 14px; color: var(--texto-suave);">O site reúne teoria, exercícios interativos e um compilador real no navegador — tudo gratuito, sem necessidade de instalação.</p>
+  </div>
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">📖</div>
+      <h4>Teoria clara</h4>
+      <p>Conteúdo explicativo com linguagem simples e exemplos de código reais, pensado para quem está tendo o primeiro contato com programação.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🎯</div>
+      <h4>Quizzes interativos</h4>
+      <p>Fixe o conteúdo com questões de múltipla escolha ao final de cada módulo, com feedback imediato sobre seus acertos.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">⌨️</div>
+      <h4>Código de verdade</h4>
+      <p>Escreva e execute código C real diretamente no navegador, sem instalar nada, com retorno do compilador em tempo real.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📊</div>
+      <h4>Progresso salvo</h4>
+      <p>Seu avanço em cada módulo fica salvo automaticamente, para você continuar de onde parou a qualquer momento.</p>
+    </div>
+  </div>
+</section>
+
+ <footer class="footer">
+  <p>Aprenda<span style="color: var(--vermelho);">.</span>C &mdash; Projeto Integrador 2026</p>
+  <p style="margin-top: 6px; font-size: 13px; color: #888;">3º Semestre de Ciência da Computação &middot; URI Santo Ângelo</p>
+</footer>
+
+  <!-- Firebase SDKs (sem backend!) -->
+  <script src="script.js"></script>
+  <script>
+  (function() {
+    var el_mod = document.getElementById('stat-modulos');
+    var el_ex  = document.getElementById('stat-exercicios');
+    var el_qz  = document.getElementById('stat-quizzes');
+    if (el_mod) el_mod.textContent = ORDEM.length;
+    if (el_ex)  el_ex.textContent  = ORDEM.length * 5;
+    if (el_qz)  el_qz.textContent  = 66;
+  })();
+  </script>
+</html>
