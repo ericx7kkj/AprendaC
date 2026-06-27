@@ -1,0 +1,28 @@
+# C.aprenda Aprenda C do zero
+
+Este e um site estatico de aprendizagem de C com conteudo teorico, quizzes interativos e progresso salvo no navegador.
+
+## Arquivos principais
+
+- `index.html` a estrutura e conteudo da pagina.
+- `style.css` estilos e layout responsivo.
+- `script.js` a logica de quizzes, progresso em `localStorage` e interacoes do usuario.
+
+## Como usar
+
+1. Abra `index.html` em um navegador moderno.
+2. Clique em um modulo para ler a teoria e responder ao quiz.
+3. Use `Resetar` para limpar o progresso salvo.
+4. O progresso e mantido automaticamente no `localStorage` do navegador.
+
+## Atualizacoes sugeridas
+
+- adicionar suporte a mais modulos e perguntas.
+- melhorar a acessibilidade de formularios e navegacao por teclado.
+- implementar autenticacao real em vez do aviso de `Login em breve!`.
+- extrair quizzes para um arquivo JSON separado se desejar escalar o conteudo.
+
+## Observacoes
+
+- Projeto nao requer compilacao ou servidor.
+- Funciona como uma pagina estatica local.
